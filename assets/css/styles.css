@@ -4,6 +4,10 @@ html, body { overflow-x: hidden; width: 100%; }
 
 .color-representation { display: inline-block; width: 60px; height: 15px; }
 
+#topnav { padding: 0px; margin: 0px; }
+
+#topnav .container { padding-top: 0px !important; padding-bottom: 0px !important; margin-bottom: 0px; }
+
 @media screen and (min-width: 768px) { body { min-height: 100vh; }
   .icon-md-100 { width: 100% !important; height: auto !important; } }
 
