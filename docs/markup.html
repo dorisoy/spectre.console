@@ -17,7 +17,7 @@
         <script src="/spectre.console/mirror/cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
 
-        <title>Spectre.Console - Grids</title>
+        <title>Spectre.Console - Markup</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Grids</div>
+                                    <div class="text-white m-0 title">Markup</div>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                                                 <div class="sidebar-nav-item">
                                                     <a href="/spectre.console/docs/quick-start">Quick Start</a>
                                                 </div>
-                                                <div class="sidebar-nav-item">
+                                                <div class="sidebar-nav-item active">
                                                     <a href="/spectre.console/docs/markup">Markup</a>
                                                 </div>
                                                 <div class="sidebar-nav-item">
@@ -86,11 +86,86 @@
                                                 </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p><strong>To be written</strong></p>
+                                        <p>In <code>Spectre.Console</code> there's a class called <code>Markup</code> that
+allows you to output rich text to the console.</p>
+<pre><code class="language-csharp">AnsiConsole.Render(new Markup("[bold yellow]Hello[/] [red]World![/]"));
+</code></pre>
+<p>Which should output something similar to the image below. Note that the
+actual appearance might vary depending on your terminal.</p>
+<p><img src="/spectre.console/assets/images/helloworld.png" alt=""></p>
+<p>The <code>Markup</code> class implements <code>IRenderable</code> which means that you
+can use this in tables, grids, and panels. Most classes that support
+rendering of <code>IRenderable</code> also have overloads for rendering rich text.</p>
+<pre><code class="language-csharp">var table = new Table();
+table.AddColumn(new TableColumn(new Markup("[yellow]Foo[/]")));
+table.AddColumn(new TableColumn("[blue]Bar[/]"));
+</code></pre>
+<h1 id="convenience-methods">Convenience methods</h1>
+<p>There is also convenience methods on <code>AnsiConsole</code> that can be used
+to write markup text to the console without instantiating a new <code>Markup</code>
+instance.</p>
+<pre><code class="language-csharp">AnsiConsole.Markup("[underline green]Hello[/] ");
+AnsiConsole.MarkupLine("[bold]World[/]");
+</code></pre>
+<h1 id="setting-background-color">Setting background color</h1>
+<p>You can set the background color in markup by prefixing the color with
+<code>on</code>.</p>
+<pre><code>[bold yellow on blue]Hello[/]
+[default on blue]World[/]
+</code></pre>
+<h1 id="colors">Colors</h1>
+<p>For a list of colors, see the <a href="/spectre.console/docs/colors">Colors</a> section.</p>
+<h1 id="styles">Styles</h1>
+<p>Note that what styles that can be used is defined by the system or your terminal software, and may not appear as they should.</p>
+<table class="table">
+    <tbody><tr>
+        <td><code>bold</code></td>
+        <td>Bold text</td>
+    </tr>
+    <tr>
+        <td><code>dim</code></td>
+        <td>Dim or faint text</td>
+    </tr>
+    <tr>
+        <td><code>italic</code></td>
+        <td>Italic text</td>
+    </tr>
+    <tr>
+        <td><code>underline</code></td>
+        <td>Underlined text</td>
+    </tr>
+    <tr>
+        <td><code>invert</code></td>
+        <td>Swaps the foreground and background colors</td>
+    </tr>
+    <tr>
+        <td><code>conceal</code></td>
+        <td>Hides the text</td>
+    </tr>
+    <tr>
+        <td><code>slowblink</code></td>
+        <td>Makes text blink slowly</td>
+    </tr>
+    <tr>
+        <td><code>rapidblink</code></td>
+        <td>Makes text blink</td>
+    </tr>
+    <tr>
+        <td><code>strikethrough</code></td>
+        <td>Shows text with a horizontal line through the center</td>
+    </tr>
+</tbody></table>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/docs/grids.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#convenience-methods">Convenience methods</a></p>
+                                                    <p class="small"><a href="#setting-background-color">Setting background color</a></p>
+                                                    <p class="small"><a href="#colors">Colors</a></p>
+                                                    <p class="small"><a href="#styles">Styles</a></p>
+                                            </div>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/docs/markup.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>
