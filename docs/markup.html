@@ -107,6 +107,11 @@ instance.</p>
 <pre><code class="language-csharp">AnsiConsole.Markup("[underline green]Hello[/] ");
 AnsiConsole.MarkupLine("[bold]World[/]");
 </code></pre>
+<h1 id="escaping-format-characters">Escaping format characters</h1>
+<p>To output a <code>[</code> you use <code>[[</code>, and to output a <code>]</code> you use <code>]]</code>.</p>
+<pre><code class="language-csharp">AnsiConsole.Markup("[[Hello]] "); // [Hello]
+AnsiConsole.Markup("[red][[World]][/]"); // [World]
+</code></pre>
 <h1 id="setting-background-color">Setting background color</h1>
 <p>You can set the background color in markup by prefixing the color with
 <code>on</code>.</p>
@@ -161,6 +166,7 @@ AnsiConsole.MarkupLine("[bold]World[/]");
                                             <div class="border-bottom mb-3">
                                                 <p class="small font-weight-bold">On This Page</p>
                                                     <p class="small"><a href="#convenience-methods">Convenience methods</a></p>
+                                                    <p class="small"><a href="#escaping-format-characters">Escaping format characters</a></p>
                                                     <p class="small"><a href="#setting-background-color">Setting background color</a></p>
                                                     <p class="small"><a href="#colors">Colors</a></p>
                                                     <p class="small"><a href="#styles">Styles</a></p>
