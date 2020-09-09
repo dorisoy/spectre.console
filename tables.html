@@ -1,23 +1,21 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
+﻿<!DOCTYPE html><html><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="/spectre.console/assets/bootstrap/bootstrap.css" rel="stylesheet" />
-        <link href="/spectre.console/assets/css/styles.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+        <link href="/spectre.console/assets/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/spectre.console/assets/css/styles.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;family=Roboto+Slab:wght@400;700&amp;family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet" data-no-mirror="">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror=""></script>
         <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
 
         <title>Spectre.Console - Tables</title>
     </head>
@@ -96,6 +94,9 @@
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/styles">Styles</a>
                                                             </div>
+                                                            <div class="sidebar-nav-child">
+                                                                <a href="/spectre.console/appendix/borders">Borders</a>
+                                                            </div>
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
@@ -114,28 +115,29 @@ table to a console's <code>Render</code> method.</p>
 var table = new Table();
 
 // Add some columns
-table.AddColumn(&quot;Foo&quot;);
-table.AddColumn(new TableColumn(&quot;Bar&quot;).Centered());
+table.AddColumn("Foo");
+table.AddColumn(new TableColumn("Bar").Centered());
 
 // Add some rows
-table.AddRow(&quot;Baz&quot;, &quot;[green]Qux[/]&quot;);
-table.AddRow(new Markup(&quot;[blue]Corgi[/]&quot;), new Panel(&quot;Waldo&quot;));
+table.AddRow("Baz", "[green]Qux[/]");
+table.AddRow(new Markup("[blue]Corgi[/]"), new Panel("Waldo"));
 
 // Render the table to the console
 AnsiConsole.Render(table);
 </code></pre>
 <p>This will render the following output:</p>
-<p><img src="assets/images/table.png" alt="Table" /></p>
+<p><img src="assets/images/table.png" alt="Table"></p>
 <h1 id="table-appearance">Table appearance</h1>
 <!------------------------->
 <!--- TABLE APPEARANCE  --->
 <!------------------------->
 <h2 id="borders">Borders</h2>
-<pre><code class="language-csharp">// Sets the border kind
-table.SetBorderKind(BorderKind.None);
-table.SetBorderKind(BorderKind.Ascii);
-table.SetBorderKind(BorderKind.Square);
-table.SetBorderKind(BorderKind.Rounded);
+<p>For a list of borders, see the <a href="/spectre.console/appendix/borders">Borders</a> appendix section.</p>
+<pre><code class="language-csharp">// Sets the border
+table.SetBorder(Border.None);
+table.SetBorder(Border.Ascii);
+table.SetBorder(Border.Square);
+table.SetBorder(Border.Rounded);
 </code></pre>
 <h2 id="expand-collapse">Expand / Collapse</h2>
 <pre><code class="language-csharp">// Table will take up as much space as it can
@@ -197,7 +199,7 @@ column.Width = 15;
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.19.2-preview.0.6</span>
+                    <span class="float-right" style="color: #888888;">0.19.2-preview.0.7</span>
                 </div>
             </div>
         </div>
@@ -245,5 +247,5 @@ column.Width = 15;
 				}
             });
         </script>
-    </body>
-</html>
+    
+</body></html>
