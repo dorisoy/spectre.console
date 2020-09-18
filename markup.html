@@ -73,20 +73,15 @@
                             <div class="row flex-grow-1 align-items-stretch">
                                     <div class="sidebar col-md-3 col-lg-2 pt-2 bg-body">
                                             <div class="sidebar-nav-item">
-                                                <a href="/spectre.console/">Welcome</a>
-                                            </div>
+<a href="/spectre.console/">Welcome</a>                                            </div>
                                                 <div class="sidebar-nav-item">
-                                                    <a href="/spectre.console/quick-start">Quick Start</a>
-                                                </div>
+<a href="/spectre.console/quick-start">Quick Start</a>                                                </div>
                                                 <div class="sidebar-nav-item active">
-                                                    <a href="/spectre.console/markup">Markup</a>
-                                                </div>
+<a href="/spectre.console/markup">Markup</a>                                                </div>
                                                 <div class="sidebar-nav-item">
-                                                    <a href="/spectre.console/tables">Tables</a>
-                                                </div>
+<a href="/spectre.console/tables">Tables</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
-                                                    <a href="/spectre.console/appendix">Appendix</a>
-                                                </div>
+<a href="/spectre.console/appendix">Appendix</a>                                                </div>
                                                     <div class="sidebar-nav-children">
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/colors">Colors</a>
@@ -97,11 +92,13 @@
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/borders">Borders</a>
                                                             </div>
+                                                            <div class="sidebar-nav-child">
+                                                                <a href="/spectre.console/appendix/emojis">Emojis</a>
+                                                            </div>
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p>In <code>Spectre.Console</code> there's a class called <code>Markup</code> that
-allows you to output rich text to the console.</p>
+                                        <p>The class <code>Markup</code> allows you to output rich text to the console.</p>
 <h1 id="syntax">Syntax</h1>
 <p>Console markup uses a syntax inspired by bbcode. If you write the style (see Styles)
 in square brackets, e.g. <code>[bold red]</code>, that style will apply until it is closed with a <code>[/]</code>.</p>
@@ -132,6 +129,11 @@ AnsiConsole.Markup("[red][[World]][/]"); // [World]
 <pre><code>[bold yellow on blue]Hello[/]
 [default on blue]World[/]
 </code></pre>
+<h1 id="rendering-emojis">Rendering emojis</h1>
+<p>To output an emoji as part of markup, you can use emoji shortcodes.</p>
+<pre><code class="language-csharp">AnsiConsole.MarkupLine("Hello :globe_showing_europe_africa:!");
+</code></pre>
+<p>For a list of emoji, see the <a href="/spectre.console/appendix/styles">Emojis</a> appendix section.</p>
 <h1 id="colors">Colors</h1>
 <p>For a list of colors, see the <a href="/spectre.console/appendix/colors">Colors</a> appendix section.</p>
 <h1 id="styles">Styles</h1>
@@ -145,6 +147,7 @@ AnsiConsole.Markup("[red][[World]][/]"); // [World]
                                                     <p class="small"><a href="#convenience-methods">Convenience methods</a></p>
                                                     <p class="small"><a href="#escaping-format-characters">Escaping format characters</a></p>
                                                     <p class="small"><a href="#setting-background-color">Setting background color</a></p>
+                                                    <p class="small"><a href="#rendering-emojis">Rendering emojis</a></p>
                                                     <p class="small"><a href="#colors">Colors</a></p>
                                                     <p class="small"><a href="#styles">Styles</a></p>
                                             </div>
@@ -159,7 +162,7 @@ AnsiConsole.Markup("[red][[World]][/]"); // [World]
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.20.1-preview.0.12</span>
+                    <span class="float-right" style="color: #888888;">0.20.1-preview.0.13</span>
                 </div>
             </div>
         </div>
