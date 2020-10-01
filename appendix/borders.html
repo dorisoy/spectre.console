@@ -101,21 +101,28 @@
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
                                         <p>There is different built-in borders you can use for tables and panels.</p>
-<h1 id="built-in-borders">Built-in borders</h1>
-<img src="../assets/images/borders.png" style="max-width: 100%;">
-<h1 id="usage">Usage</h1>
-<p>To create a table and set it's border to <code>SimpleHeavy</code> as seen in the
-image above:</p>
+<h1 id="table-borders">Table borders</h1>
+<img src="../assets/images/borders/table.png" style="max-width: 100%;">
+<h2 id="example">Example</h2>
+<p>To set a table border to <code>SimpleHeavy</code>:</p>
 <pre><code class="language-csharp">var table = new Table();
-table.Border = Border.SimpleHeavy;
+table.Border = TableBorder.SimpleHeavy;
+</code></pre>
+<hr />
+<h1 id="panel-borders">Panel borders</h1>
+<img src="../assets/images/borders/panel.png" style="max-width: 100%;">
+<h2 id="example-1">Example</h2>
+<p>To set a panel border to <code>Rounded</code>:</p>
+<pre><code class="language-csharp">var panel = new Panel(&quot;Hello World&quot;);
+panel.Border = BoxBorder.Rounded;
 </code></pre>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
                                             <div class="border-bottom mb-3">
                                                 <p class="small font-weight-bold">On This Page</p>
-                                                    <p class="small"><a href="#built-in-borders">Built-in borders</a></p>
-                                                    <p class="small"><a href="#usage">Usage</a></p>
+                                                    <p class="small"><a href="#table-borders">Table borders</a></p>
+                                                    <p class="small"><a href="#panel-borders">Panel borders</a></p>
                                             </div>
                                         <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/appendix/borders.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
@@ -128,7 +135,7 @@ table.Border = Border.SimpleHeavy;
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.22.0</span>
+                    <span class="float-right" style="color: #888888;">0.22.1-preview.0.2</span>
                 </div>
             </div>
         </div>
