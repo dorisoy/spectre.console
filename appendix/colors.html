@@ -106,7 +106,19 @@
 <p>You can either use the colors in code, such as <code>new Style(foreground: Color.Maroon)</code> or
 in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&quot;)</code>.</p>
 <h1 id="standard-colors">Standard colors</h1>
-<table class="table">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">
+        <i class="fas fa-search" aria-hidden="true"></i>
+    </span>
+  </div>
+  <input
+    class="form-control w-100 filter"
+    data-table="color-results"
+    type="text" placeholder="Search Colors..." autocomplete="off" 
+    aria-label="Search Colors">
+</div>
+<table class="table" id="color-results">
   <tr class="color-row">
     <th></th>
     <th>#</th>
@@ -115,7 +127,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
     <th>Hex</th>
     <th>System.ConsoleColor</th>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#000000;" />
     </td>
@@ -135,7 +147,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Black</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#800000;" />
     </td>
@@ -155,7 +167,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>DarkRed</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#008000;" />
     </td>
@@ -175,7 +187,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>DarkGreen</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#808000;" />
     </td>
@@ -195,7 +207,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>DarkYellow</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#000080;" />
     </td>
@@ -215,7 +227,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>DarkBlue</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#800080;" />
     </td>
@@ -235,7 +247,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>DarkMagenta</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#008080;" />
     </td>
@@ -255,7 +267,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>DarkCyan</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#c0c0c0;" />
     </td>
@@ -275,7 +287,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Gray</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#808080;" />
     </td>
@@ -295,7 +307,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>DarkGray</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff0000;" />
     </td>
@@ -315,7 +327,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Red</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ff00;" />
     </td>
@@ -335,7 +347,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Green</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffff00;" />
     </td>
@@ -355,7 +367,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Yellow</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#0000ff;" />
     </td>
@@ -375,7 +387,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Blue</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff00ff;" />
     </td>
@@ -395,7 +407,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Magenta</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ffff;" />
     </td>
@@ -415,7 +427,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>Cyan</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffffff;" />
     </td>
@@ -435,7 +447,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code>White</code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#000000;" />
     </td>
@@ -455,7 +467,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00005f;" />
     </td>
@@ -475,7 +487,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#000087;" />
     </td>
@@ -495,7 +507,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#0000af;" />
     </td>
@@ -515,7 +527,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#0000d7;" />
     </td>
@@ -535,7 +547,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#0000ff;" />
     </td>
@@ -555,7 +567,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#005f00;" />
     </td>
@@ -575,7 +587,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#005f5f;" />
     </td>
@@ -595,7 +607,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#005f87;" />
     </td>
@@ -615,7 +627,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#005faf;" />
     </td>
@@ -635,7 +647,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#005fd7;" />
     </td>
@@ -655,7 +667,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#005fff;" />
     </td>
@@ -675,7 +687,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#008700;" />
     </td>
@@ -695,7 +707,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00875f;" />
     </td>
@@ -715,7 +727,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#008787;" />
     </td>
@@ -735,7 +747,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#0087af;" />
     </td>
@@ -755,7 +767,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#0087d7;" />
     </td>
@@ -775,7 +787,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#0087ff;" />
     </td>
@@ -795,7 +807,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00af00;" />
     </td>
@@ -815,7 +827,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00af5f;" />
     </td>
@@ -835,7 +847,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00af87;" />
     </td>
@@ -855,7 +867,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00afaf;" />
     </td>
@@ -875,7 +887,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00afd7;" />
     </td>
@@ -895,7 +907,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00afff;" />
     </td>
@@ -915,7 +927,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00d700;" />
     </td>
@@ -935,7 +947,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00d75f;" />
     </td>
@@ -955,7 +967,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00d787;" />
     </td>
@@ -975,7 +987,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00d7af;" />
     </td>
@@ -995,7 +1007,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00d7d7;" />
     </td>
@@ -1015,7 +1027,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00d7ff;" />
     </td>
@@ -1035,7 +1047,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ff00;" />
     </td>
@@ -1055,7 +1067,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ff5f;" />
     </td>
@@ -1075,7 +1087,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ff87;" />
     </td>
@@ -1095,7 +1107,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ffaf;" />
     </td>
@@ -1115,7 +1127,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ffd7;" />
     </td>
@@ -1135,7 +1147,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#00ffff;" />
     </td>
@@ -1155,7 +1167,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f0000;" />
     </td>
@@ -1175,7 +1187,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f005f;" />
     </td>
@@ -1195,7 +1207,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f0087;" />
     </td>
@@ -1215,7 +1227,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f00af;" />
     </td>
@@ -1235,7 +1247,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f00d7;" />
     </td>
@@ -1255,7 +1267,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f00ff;" />
     </td>
@@ -1275,7 +1287,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f5f00;" />
     </td>
@@ -1295,7 +1307,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f5f5f;" />
     </td>
@@ -1315,7 +1327,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f5f87;" />
     </td>
@@ -1335,7 +1347,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f5faf;" />
     </td>
@@ -1355,7 +1367,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f5fd7;" />
     </td>
@@ -1375,7 +1387,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f5fff;" />
     </td>
@@ -1395,7 +1407,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f8700;" />
     </td>
@@ -1415,7 +1427,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f875f;" />
     </td>
@@ -1435,7 +1447,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f8787;" />
     </td>
@@ -1455,7 +1467,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f87af;" />
     </td>
@@ -1475,7 +1487,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f87d7;" />
     </td>
@@ -1495,7 +1507,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5f87ff;" />
     </td>
@@ -1515,7 +1527,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5faf00;" />
     </td>
@@ -1535,7 +1547,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5faf5f;" />
     </td>
@@ -1555,7 +1567,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5faf87;" />
     </td>
@@ -1575,7 +1587,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fafaf;" />
     </td>
@@ -1595,7 +1607,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fafd7;" />
     </td>
@@ -1615,7 +1627,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fafff;" />
     </td>
@@ -1635,7 +1647,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fd700;" />
     </td>
@@ -1655,7 +1667,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fd75f;" />
     </td>
@@ -1675,7 +1687,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fd787;" />
     </td>
@@ -1695,7 +1707,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fd7af;" />
     </td>
@@ -1715,7 +1727,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fd7d7;" />
     </td>
@@ -1735,7 +1747,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fd7ff;" />
     </td>
@@ -1755,7 +1767,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fff00;" />
     </td>
@@ -1775,7 +1787,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fff5f;" />
     </td>
@@ -1795,7 +1807,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fff87;" />
     </td>
@@ -1815,7 +1827,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fffaf;" />
     </td>
@@ -1835,7 +1847,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fffd7;" />
     </td>
@@ -1855,7 +1867,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#5fffff;" />
     </td>
@@ -1875,7 +1887,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#870000;" />
     </td>
@@ -1895,7 +1907,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87005f;" />
     </td>
@@ -1915,7 +1927,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#870087;" />
     </td>
@@ -1935,7 +1947,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#8700af;" />
     </td>
@@ -1955,7 +1967,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#8700d7;" />
     </td>
@@ -1975,7 +1987,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#8700ff;" />
     </td>
@@ -1995,7 +2007,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#875f00;" />
     </td>
@@ -2015,7 +2027,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#875f5f;" />
     </td>
@@ -2035,7 +2047,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#875f87;" />
     </td>
@@ -2055,7 +2067,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#875faf;" />
     </td>
@@ -2075,7 +2087,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#875fd7;" />
     </td>
@@ -2095,7 +2107,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#875fff;" />
     </td>
@@ -2115,7 +2127,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#878700;" />
     </td>
@@ -2135,7 +2147,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87875f;" />
     </td>
@@ -2155,7 +2167,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#878787;" />
     </td>
@@ -2175,7 +2187,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#8787af;" />
     </td>
@@ -2195,7 +2207,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#8787d7;" />
     </td>
@@ -2215,7 +2227,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#8787ff;" />
     </td>
@@ -2235,7 +2247,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87af00;" />
     </td>
@@ -2255,7 +2267,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87af5f;" />
     </td>
@@ -2275,7 +2287,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87af87;" />
     </td>
@@ -2295,7 +2307,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87afaf;" />
     </td>
@@ -2315,7 +2327,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87afd7;" />
     </td>
@@ -2335,7 +2347,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87afff;" />
     </td>
@@ -2355,7 +2367,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87d700;" />
     </td>
@@ -2375,7 +2387,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87d75f;" />
     </td>
@@ -2395,7 +2407,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87d787;" />
     </td>
@@ -2415,7 +2427,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87d7af;" />
     </td>
@@ -2435,7 +2447,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87d7d7;" />
     </td>
@@ -2455,7 +2467,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87d7ff;" />
     </td>
@@ -2475,7 +2487,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87ff00;" />
     </td>
@@ -2495,7 +2507,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87ff5f;" />
     </td>
@@ -2515,7 +2527,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87ff87;" />
     </td>
@@ -2535,7 +2547,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87ffaf;" />
     </td>
@@ -2555,7 +2567,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87ffd7;" />
     </td>
@@ -2575,7 +2587,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#87ffff;" />
     </td>
@@ -2595,7 +2607,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af0000;" />
     </td>
@@ -2615,7 +2627,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af005f;" />
     </td>
@@ -2635,7 +2647,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af0087;" />
     </td>
@@ -2655,7 +2667,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af00af;" />
     </td>
@@ -2675,7 +2687,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af00d7;" />
     </td>
@@ -2695,7 +2707,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af00ff;" />
     </td>
@@ -2715,7 +2727,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af5f00;" />
     </td>
@@ -2735,7 +2747,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af5f5f;" />
     </td>
@@ -2755,7 +2767,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af5f87;" />
     </td>
@@ -2775,7 +2787,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af5faf;" />
     </td>
@@ -2795,7 +2807,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af5fd7;" />
     </td>
@@ -2815,7 +2827,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af5fff;" />
     </td>
@@ -2835,7 +2847,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af8700;" />
     </td>
@@ -2855,7 +2867,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af875f;" />
     </td>
@@ -2875,7 +2887,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af8787;" />
     </td>
@@ -2895,7 +2907,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af87af;" />
     </td>
@@ -2915,7 +2927,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af87d7;" />
     </td>
@@ -2935,7 +2947,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#af87ff;" />
     </td>
@@ -2955,7 +2967,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afaf00;" />
     </td>
@@ -2975,7 +2987,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afaf5f;" />
     </td>
@@ -2995,7 +3007,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afaf87;" />
     </td>
@@ -3015,7 +3027,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afafaf;" />
     </td>
@@ -3035,7 +3047,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afafd7;" />
     </td>
@@ -3055,7 +3067,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afafff;" />
     </td>
@@ -3075,7 +3087,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afd700;" />
     </td>
@@ -3095,7 +3107,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afd75f;" />
     </td>
@@ -3115,7 +3127,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afd787;" />
     </td>
@@ -3135,7 +3147,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afd7af;" />
     </td>
@@ -3155,7 +3167,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afd7d7;" />
     </td>
@@ -3175,7 +3187,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afd7ff;" />
     </td>
@@ -3195,7 +3207,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afff00;" />
     </td>
@@ -3215,7 +3227,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afff5f;" />
     </td>
@@ -3235,7 +3247,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afff87;" />
     </td>
@@ -3255,7 +3267,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afffaf;" />
     </td>
@@ -3275,7 +3287,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afffd7;" />
     </td>
@@ -3295,7 +3307,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#afffff;" />
     </td>
@@ -3315,7 +3327,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d70000;" />
     </td>
@@ -3335,7 +3347,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7005f;" />
     </td>
@@ -3355,7 +3367,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d70087;" />
     </td>
@@ -3375,7 +3387,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d700af;" />
     </td>
@@ -3395,7 +3407,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d700d7;" />
     </td>
@@ -3415,7 +3427,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d700ff;" />
     </td>
@@ -3435,7 +3447,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d75f00;" />
     </td>
@@ -3455,7 +3467,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d75f5f;" />
     </td>
@@ -3475,7 +3487,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d75f87;" />
     </td>
@@ -3495,7 +3507,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d75faf;" />
     </td>
@@ -3515,7 +3527,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d75fd7;" />
     </td>
@@ -3535,7 +3547,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d75fff;" />
     </td>
@@ -3555,7 +3567,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d78700;" />
     </td>
@@ -3575,7 +3587,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7875f;" />
     </td>
@@ -3595,7 +3607,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d78787;" />
     </td>
@@ -3615,7 +3627,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d787af;" />
     </td>
@@ -3635,7 +3647,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d787d7;" />
     </td>
@@ -3655,7 +3667,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d787ff;" />
     </td>
@@ -3675,7 +3687,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7af00;" />
     </td>
@@ -3695,7 +3707,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7af5f;" />
     </td>
@@ -3715,7 +3727,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7af87;" />
     </td>
@@ -3735,7 +3747,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7afaf;" />
     </td>
@@ -3755,7 +3767,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7afd7;" />
     </td>
@@ -3775,7 +3787,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7afff;" />
     </td>
@@ -3795,7 +3807,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7d700;" />
     </td>
@@ -3815,7 +3827,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7d75f;" />
     </td>
@@ -3835,7 +3847,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7d787;" />
     </td>
@@ -3855,7 +3867,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7d7af;" />
     </td>
@@ -3875,7 +3887,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7d7d7;" />
     </td>
@@ -3895,7 +3907,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7d7ff;" />
     </td>
@@ -3915,7 +3927,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7ff00;" />
     </td>
@@ -3935,7 +3947,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7ff5f;" />
     </td>
@@ -3955,7 +3967,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7ff87;" />
     </td>
@@ -3975,7 +3987,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7ffaf;" />
     </td>
@@ -3995,7 +4007,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7ffd7;" />
     </td>
@@ -4015,7 +4027,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d7ffff;" />
     </td>
@@ -4035,7 +4047,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff0000;" />
     </td>
@@ -4055,7 +4067,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff005f;" />
     </td>
@@ -4075,7 +4087,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff0087;" />
     </td>
@@ -4095,7 +4107,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff00af;" />
     </td>
@@ -4115,7 +4127,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff00d7;" />
     </td>
@@ -4135,7 +4147,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff00ff;" />
     </td>
@@ -4155,7 +4167,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff5f00;" />
     </td>
@@ -4175,7 +4187,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff5f5f;" />
     </td>
@@ -4195,7 +4207,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff5f87;" />
     </td>
@@ -4215,7 +4227,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff5faf;" />
     </td>
@@ -4235,7 +4247,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff5fd7;" />
     </td>
@@ -4255,7 +4267,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff5fff;" />
     </td>
@@ -4275,7 +4287,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff8700;" />
     </td>
@@ -4295,7 +4307,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff875f;" />
     </td>
@@ -4315,7 +4327,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff8787;" />
     </td>
@@ -4335,7 +4347,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff87af;" />
     </td>
@@ -4355,7 +4367,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff87d7;" />
     </td>
@@ -4375,7 +4387,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ff87ff;" />
     </td>
@@ -4395,7 +4407,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffaf00;" />
     </td>
@@ -4415,7 +4427,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffaf5f;" />
     </td>
@@ -4435,7 +4447,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffaf87;" />
     </td>
@@ -4455,7 +4467,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffafaf;" />
     </td>
@@ -4475,7 +4487,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffafd7;" />
     </td>
@@ -4495,7 +4507,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffafff;" />
     </td>
@@ -4515,7 +4527,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffd700;" />
     </td>
@@ -4535,7 +4547,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffd75f;" />
     </td>
@@ -4555,7 +4567,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffd787;" />
     </td>
@@ -4575,7 +4587,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffd7af;" />
     </td>
@@ -4595,7 +4607,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffd7d7;" />
     </td>
@@ -4615,7 +4627,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffd7ff;" />
     </td>
@@ -4635,7 +4647,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffff00;" />
     </td>
@@ -4655,7 +4667,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffff5f;" />
     </td>
@@ -4675,7 +4687,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffff87;" />
     </td>
@@ -4695,7 +4707,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffffaf;" />
     </td>
@@ -4715,7 +4727,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffffd7;" />
     </td>
@@ -4735,7 +4747,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#ffffff;" />
     </td>
@@ -4755,7 +4767,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#080808;" />
     </td>
@@ -4775,7 +4787,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#121212;" />
     </td>
@@ -4795,7 +4807,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#1c1c1c;" />
     </td>
@@ -4815,7 +4827,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#262626;" />
     </td>
@@ -4835,7 +4847,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#303030;" />
     </td>
@@ -4855,7 +4867,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#3a3a3a;" />
     </td>
@@ -4875,7 +4887,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#444444;" />
     </td>
@@ -4895,7 +4907,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#4e4e4e;" />
     </td>
@@ -4915,7 +4927,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#585858;" />
     </td>
@@ -4935,7 +4947,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#626262;" />
     </td>
@@ -4955,7 +4967,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#6c6c6c;" />
     </td>
@@ -4975,7 +4987,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#767676;" />
     </td>
@@ -4995,7 +5007,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#808080;" />
     </td>
@@ -5015,7 +5027,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#8a8a8a;" />
     </td>
@@ -5035,7 +5047,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#949494;" />
     </td>
@@ -5055,7 +5067,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#9e9e9e;" />
     </td>
@@ -5075,7 +5087,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#a8a8a8;" />
     </td>
@@ -5095,7 +5107,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#b2b2b2;" />
     </td>
@@ -5115,7 +5127,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#bcbcbc;" />
     </td>
@@ -5135,7 +5147,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#c6c6c6;" />
     </td>
@@ -5155,7 +5167,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#d0d0d0;" />
     </td>
@@ -5175,7 +5187,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#dadada;" />
     </td>
@@ -5195,7 +5207,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#e4e4e4;" />
     </td>
@@ -5215,7 +5227,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
       <code></code>
     </td>
   </tr>
-  <tr>
+  <tr class="search-row">
     <td>
       <span class="color-representation" style="background-color:#eeeeee;" />
     </td>
@@ -5236,6 +5248,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
     </td>
   </tr>
 </table>
+<script type="text/javascript" src="../assets/js/table-search.js"></script>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
@@ -5255,7 +5268,7 @@ in markup text such as <code>AnsiConsole.Markup(&quot;[maroon on blue]Hello[/]&q
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.23.1-preview.0.3</span>
+                    <span class="float-right" style="color: #888888;">0.23.1-preview.0.4</span>
                 </div>
             </div>
         </div>
