@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
-        <title>Spectre.Console - Styles</title>
+        <title>Spectre.Console - Exceptions</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Styles</div>
+                                    <div class="text-white m-0 title">Exceptions</div>
                                 </div>
                             </div>
                         </div>
@@ -80,17 +80,17 @@
 <a href="/spectre.console/quick-start">Quick Start</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/markup">Markup</a>                                                </div>
-                                                <div class="sidebar-nav-item">
+                                                <div class="sidebar-nav-item active">
 <a href="/spectre.console/exceptions">Exceptions</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/tables">Tables</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/appendix">Appendix</a>                                                </div>
-                                                    <div class="sidebar-nav-children active">
+                                                    <div class="sidebar-nav-children">
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/colors">Colors</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child active">
+                                                            <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/styles">Styles</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -102,49 +102,23 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p>Note that what styles that can be used is defined by the system or your terminal software, and may not appear as they should.</p>
-<table class="table">
-    <tr>
-        <td><code>bold</code></td>
-        <td>Bold text</td>
-    </tr>
-    <tr>
-        <td><code>dim</code></td>
-        <td>Dim or faint text</td>
-    </tr>
-    <tr>
-        <td><code>italic</code></td>
-        <td>Italic text</td>
-    </tr>
-    <tr>
-        <td><code>underline</code></td>
-        <td>Underlined text</td>
-    </tr>
-    <tr>
-        <td><code>invert</code></td>
-        <td>Swaps the foreground and background colors</td>
-    </tr>
-    <tr>
-        <td><code>conceal</code></td>
-        <td>Hides the text</td>
-    </tr>
-    <tr>
-        <td><code>slowblink</code></td>
-        <td>Makes text blink slowly</td>
-    </tr>
-    <tr>
-        <td><code>rapidblink</code></td>
-        <td>Makes text blink</td>
-    </tr>
-    <tr>
-        <td><code>strikethrough</code></td>
-        <td>Shows text with a horizontal line through the center</td>
-    </tr>
-</table>
+                                        <p>Exceptions isn't always readable when viewed in the terminal.<br />
+You can make exception a bit more readable by using the <code>WriteException</code> method.</p>
+<pre><code class="language-csharp">AnsiConsole.WriteException(ex);
+</code></pre>
+<img src="assets/images/exception.png" style="max-width: 100%; margin-bottom: 20px">
+<p>You can also shorten specific parts of the exception to make it even
+more readable, and make paths clickable hyperlinks. Whether or not
+the hyperlinks are clickable is up to the terminal.</p>
+<pre><code class="language-csharp">AnsiConsole.WriteException(ex, 
+    ExceptionFormat.ShortenPaths | ExceptionFormat.ShortenTypes |
+    ExceptionFormat.ShortenMethods | ExceptionFormat.ShowLinks);
+</code></pre>
+<img src="assets/images/compact_exception.png" style="max-width: 100%;">
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/appendix/styles.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/exceptions.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>
