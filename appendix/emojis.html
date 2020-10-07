@@ -122,6 +122,21 @@ var hello = &quot;Hello &quot; + Emoji.Known.GlobeShowingEuropeAfrica;
 <pre><code class="language-csharp">var phrase = &quot;Mmmm :birthday_cake:&quot;;
 var rendered = Emoji.Replace(phrase);
 </code></pre>
+<h1 id="remapping-or-adding-an-emoji">Remapping or adding an emoji</h1>
+<p>Sometimes you want to remap an existing emoji, or
+add a completely new one. For this you can use the
+<code>Emoji.Remap</code> method. This approach works both with
+markup strings and <code>Emoji.Replace</code>.</p>
+<pre><code class="language-csharp">// Remap the emoji
+Emoji.Remap(&quot;globe_showing_europe_africa&quot;, &quot;😄&quot;);
+
+// Render markup
+AnsiConsole.MarkupLine(&quot;Hello :globe_showing_europe_africa:!&quot;);
+
+// Replace emojis in string
+var phrase = &quot;Hello :globe_showing_europe_africa:!&quot;;
+var rendered = Emoji.Replace(phrase);
+</code></pre>
 <h1 id="emojis">Emojis</h1>
 <p><em>The images in the table below might not render correctly in your
 browser for the same reasons mentioned in the <code>Compatibility</code> section.</em></p>
@@ -12068,6 +12083,7 @@ browser for the same reasons mentioned in the <code>Compatibility</code> section
                                                 <p class="small font-weight-bold">On This Page</p>
                                                     <p class="small"><a href="#usage">Usage</a></p>
                                                     <p class="small"><a href="#replacing-emojis-in-text">Replacing emojis in text</a></p>
+                                                    <p class="small"><a href="#remapping-or-adding-an-emoji">Remapping or adding an emoji</a></p>
                                                     <p class="small"><a href="#emojis">Emojis</a></p>
                                             </div>
                                         <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/appendix/emojis.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
@@ -12081,7 +12097,7 @@ browser for the same reasons mentioned in the <code>Compatibility</code> section
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.24.1-preview.0.2</span>
+                    <span class="float-right" style="color: #888888;">0.24.1-preview.0.3</span>
                 </div>
             </div>
         </div>
