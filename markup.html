@@ -125,6 +125,9 @@ AnsiConsole.MarkupLine("[bold]World[/]");
 <pre><code class="language-csharp">AnsiConsole.Markup("[[Hello]] "); // [Hello]
 AnsiConsole.Markup("[red][[World]][/]"); // [World]
 </code></pre>
+<p>You can also use the <code>SafeMarkup</code> extension method.</p>
+<pre><code class="language-csharp">AnsiConsole.Markup("[red]{0}[/]", "Hello [World]".SafeMarkup());
+</code></pre>
 <h1 id="setting-background-color">Setting background color</h1>
 <p>You can set the background color in markup by prefixing the color with
 <code>on</code>.</p>
@@ -170,7 +173,7 @@ AnsiConsole.Markup("[rgb(255,0,0)]Baz[/] ");
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.24.0</span>
+                    <span class="float-right" style="color: #888888;">0.24.1-preview.0.2</span>
                 </div>
             </div>
         </div>
