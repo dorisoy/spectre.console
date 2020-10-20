@@ -17,7 +17,7 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
 
-        <title>Spectre.Console - Markup</title>
+        <title>Spectre.Console - Table</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Markup</div>
+                                    <div class="text-white m-0 title">Table</div>
                                 </div>
                             </div>
                         </div>
@@ -76,14 +76,14 @@
 <a href="/spectre.console/">Welcome</a>                                            </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/quick-start">Quick Start</a>                                                </div>
-                                                <div class="sidebar-nav-item active">
+                                                <div class="sidebar-nav-item">
 <a href="/spectre.console/markup">Markup</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/exceptions">Exceptions</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/widgets">Widgets</a>                                                </div>
-                                                    <div class="sidebar-nav-children">
-                                                            <div class="sidebar-nav-child">
+                                                    <div class="sidebar-nav-children active">
+                                                            <div class="sidebar-nav-child active">
                                                                 <a href="/spectre.console/widgets/table">Table</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -112,69 +112,95 @@
 <a href="/spectre.console/calendar"></a>                                                </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p>The class <code>Markup</code> allows you to output rich text to the console.</p>
-<h1 id="syntax">Syntax</h1>
-<p>Console markup uses a syntax inspired by bbcode. If you write the style (see Styles)
-in square brackets, e.g. <code>[bold red]</code>, that style will apply until it is closed with a <code>[/]</code>.</p>
-<pre><code class="language-csharp">AnsiConsole.Render(new Markup("[bold yellow]Hello[/] [red]World![/]"));
+                                        <p>Tables are a perfect way of displaying tabular data in a terminal.</p>
+<p><code>Spectre.Console</code> is super smart about rendering tables and will adjust
+all columns to fit whatever is inside them. Anything that implements
+<code>IRenderable</code> can be used as a column header or column cell, even another table!</p>
+<h1 id="usage">Usage</h1>
+<!------------------------->
+<!--- USAGE             --->
+<!------------------------->
+<p>To render a table, create a <code>Table</code> instance, add the number of
+columns that you need, and then add the rows. Finish by passing the
+table to a console's <code>Render</code> method.</p>
+<pre><code class="language-csharp">// Create a table
+var table = new Table();
+
+// Add some columns
+table.AddColumn("Foo");
+table.AddColumn(new TableColumn("Bar").Centered());
+
+// Add some rows
+table.AddRow("Baz", "[green]Qux[/]");
+table.AddRow(new Markup("[blue]Corgi[/]"), new Panel("Waldo"));
+
+// Render the table to the console
+AnsiConsole.Render(table);
 </code></pre>
-<p>The <code>Markup</code> class implements <code>IRenderable</code> which means that you
-can use this in tables, grids, and panels. Most classes that support
-rendering of <code>IRenderable</code> also have overloads for rendering rich text.</p>
-<pre><code class="language-csharp">var table = new Table();
-table.AddColumn(new TableColumn(new Markup("[yellow]Foo[/]")));
-table.AddColumn(new TableColumn("[blue]Bar[/]"));
+<p>This will render the following output:</p>
+<p><img src="../assets/images/table.png" alt="Table"></p>
+<h1 id="table-appearance">Table appearance</h1>
+<!------------------------->
+<!--- TABLE APPEARANCE  --->
+<!------------------------->
+<h2 id="borders">Borders</h2>
+<p>For a list of borders, see the <a href="/spectre.console/appendix/borders">Borders</a> appendix section.</p>
+<pre><code class="language-csharp">// Sets the border
+table.SetBorder(Border.None);
+table.SetBorder(Border.Ascii);
+table.SetBorder(Border.Square);
+table.SetBorder(Border.Rounded);
 </code></pre>
-<h1 id="convenience-methods">Convenience methods</h1>
-<p>There is also convenience methods on <code>AnsiConsole</code> that can be used
-to write markup text to the console without instantiating a new <code>Markup</code>
-instance.</p>
-<pre><code class="language-csharp">AnsiConsole.Markup("[underline green]Hello[/] ");
-AnsiConsole.MarkupLine("[bold]World[/]");
+<h2 id="expand-collapse">Expand / Collapse</h2>
+<pre><code class="language-csharp">// Table will take up as much space as it can
+// with respect to other things.
+table.Expand();
+
+// Table will take up minimal width
+table.Collapse();
 </code></pre>
-<h1 id="escaping-format-characters">Escaping format characters</h1>
-<p>To output a <code>[</code> you use <code>[[</code>, and to output a <code>]</code> you use <code>]]</code>.</p>
-<pre><code class="language-csharp">AnsiConsole.Markup("[[Hello]] "); // [Hello]
-AnsiConsole.Markup("[red][[World]][/]"); // [World]
+<h2 id="hide-headers">Hide headers</h2>
+<pre><code class="language-csharp">// Hides all column headers
+table.HideHeaders();
 </code></pre>
-<p>You can also use the <code>SafeMarkup</code> extension method.</p>
-<pre><code class="language-csharp">AnsiConsole.Markup("[red]{0}[/]", "Hello [World]".SafeMarkup());
+<h2 id="set-table-width">Set table width</h2>
+<pre><code class="language-csharp">// Sets the table width to 50 cells
+table.SetWidth(50);
 </code></pre>
-<h1 id="setting-background-color">Setting background color</h1>
-<p>You can set the background color in markup by prefixing the color with
-<code>on</code>.</p>
-<pre><code>[bold yellow on blue]Hello[/]
-[default on blue]World[/]
+<h1 id="column-appearance">Column appearance</h1>
+<!------------------------->
+<!--- COLUMN APPEARANCE --->
+<!------------------------->
+<h2 id="alignment">Alignment</h2>
+<pre><code class="language-csharp">// Set the alignment explicitly
+column.SetAlignment(Justify.Right);
 </code></pre>
-<h1 id="rendering-emojis">Rendering emojis</h1>
-<p>To output an emoji as part of markup, you can use emoji shortcodes.</p>
-<pre><code class="language-csharp">AnsiConsole.MarkupLine("Hello :globe_showing_europe_africa:!");
+<h2 id="padding">Padding</h2>
+<pre><code class="language-csharp">// Set left and right padding
+column.SetPadding(left: 3, right: 5);
+
+// Set padding individually.
+column.PadLeft(3);
+column.PadRight(5);
 </code></pre>
-<p>For a list of emoji, see the <a href="/spectre.console/appendix/emojis">Emojis</a> appendix section.</p>
-<h1 id="colors">Colors</h1>
-<p>In the examples above, all colors was referenced by their name,
-but you can also use the hex or rgb representation for colors in markdown.</p>
-<pre><code class="language-csharp">AnsiConsole.Markup("[red]Foo[/] ");
-AnsiConsole.Markup("[#ff0000]Bar[/] ");
-AnsiConsole.Markup("[rgb(255,0,0)]Baz[/] ");
+<h2 id="disable-column-wrapping">Disable column wrapping</h2>
+<pre><code class="language-csharp">// Disable column wrapping
+column.NoWrap();
 </code></pre>
-<p>For a list of colors, see the <a href="/spectre.console/appendix/colors">Colors</a> appendix section.</p>
-<h1 id="styles">Styles</h1>
-<p>For a list of styles, see the <a href="/spectre.console/appendix/styles">Styles</a> appendix section.</p>
+<h2 id="set-column-width">Set column width</h2>
+<pre><code class="language-csharp">// Set the column width (no fluent extension method for this yet)
+column.Width = 15;
+</code></pre>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
                                             <div class="border-bottom mb-3">
                                                 <p class="small font-weight-bold">On This Page</p>
-                                                    <p class="small"><a href="#syntax">Syntax</a></p>
-                                                    <p class="small"><a href="#convenience-methods">Convenience methods</a></p>
-                                                    <p class="small"><a href="#escaping-format-characters">Escaping format characters</a></p>
-                                                    <p class="small"><a href="#setting-background-color">Setting background color</a></p>
-                                                    <p class="small"><a href="#rendering-emojis">Rendering emojis</a></p>
-                                                    <p class="small"><a href="#colors">Colors</a></p>
-                                                    <p class="small"><a href="#styles">Styles</a></p>
+                                                    <p class="small"><a href="#usage">Usage</a></p>
+                                                    <p class="small"><a href="#table-appearance">Table appearance</a></p>
+                                                    <p class="small"><a href="#column-appearance">Column appearance</a></p>
                                             </div>
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/markup.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/widgets/table.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>
