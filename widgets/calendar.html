@@ -77,6 +77,10 @@
                                             <div class="sidebar-nav-item">
 <a href="/spectre.console/">Welcome</a>                                            </div>
                                                 <div class="sidebar-nav-item">
+<a href="/spectre.console/tables"></a>                                                </div>
+                                                <div class="sidebar-nav-item">
+<a href="/spectre.console/calendar"></a>                                                </div>
+                                                <div class="sidebar-nav-item">
 <a href="/spectre.console/quick-start">Quick Start</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/markup">Markup</a>                                                </div>
@@ -108,16 +112,48 @@
                                                                 <a href="/spectre.console/appendix/emojis">Emojis</a>
                                                             </div>
                                                     </div>
-                                                <div class="sidebar-nav-item">
-<a href="/spectre.console/tables"></a>                                                </div>
-                                                <div class="sidebar-nav-item">
-<a href="/spectre.console/calendar"></a>                                                </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
                                         <p>The <code>Calendar</code> is used to render a calendar to the terminal.</p>
 <h1 id="usage">Usage</h1>
 <p>To render a calendar, create a <code>Calendar</code> instance with a target date.</p>
 <pre><code class="language-csharp">var calendar = new Calendar(2020,10);
+AnsiConsole.Render(calendar);
+
+               2020 October
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+│ Sun │ Mon │ Tue │ Wed │ Thu │ Fri │ Sat │
+├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │ 1   │ 2   │ 3   │
+│ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 10  │
+│ 11  │ 12  │ 13  │ 14  │ 15  │ 16  │ 17  │
+│ 18  │ 19  │ 20  │ 21  │ 22  │ 23  │ 24  │
+│ 25  │ 26  │ 27  │ 28  │ 29  │ 30  │ 31  │
+│     │     │     │     │     │     │     │
+└─────┴─────┴─────┴─────┴─────┴─────┴─────┘
+</code></pre>
+<h2 id="culture">Culture</h2>
+<p>You can set the calendar's culture to show localized weekdays.</p>
+<pre><code class="language-csharp">var calendar = new Calendar(2020,10);
+calendar.SetCulture(&quot;ja-JP&quot;);
+AnsiConsole.Render(calendar);
+
+             2020年10月
+┌────┬────┬────┬────┬────┬────┬────┐
+│ 日 │ 月 │ 火 │ 水 │ 木 │ 金 │ 土 │
+├────┼────┼────┼────┼────┼────┼────┤
+│    │    │    │    │ 1  │ 2  │ 3  │
+│ 4  │ 5  │ 6  │ 7  │ 8  │ 9  │ 10 │
+│ 11 │ 12 │ 13 │ 14 │ 15 │ 16 │ 17 │
+│ 18 │ 19 │ 20 │ 21 │ 22 │ 23 │ 24 │
+│ 25 │ 26 │ 27 │ 28 │ 29 │ 30 │ 31 │
+│    │    │    │    │    │    │    │
+└────┴────┴────┴────┴────┴────┴────┘
+</code></pre>
+<h2 id="header">Header</h2>
+<p>You can hide the calendar header.</p>
+<pre><code class="language-csharp">var calendar = new Calendar(2020,10);
+calendar.ShowHeader = false;
 AnsiConsole.Render(calendar);
 
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
@@ -130,25 +166,11 @@ AnsiConsole.Render(calendar);
 │ 25  │ 26  │ 27  │ 28  │ 29  │ 30  │ 31  │
 │     │     │     │     │     │     │     │
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┘
-
 </code></pre>
-<h2 id="culture">Culture</h2>
-<p>You can set the calendar's culture to show localized weekdays.</p>
+<p>You can set the header style of the calendar.</p>
 <pre><code class="language-csharp">var calendar = new Calendar(2020,10);
-calendar.SetCulture(&quot;ja-JP&quot;);
+calendar.SetHeaderStyle(Style.Parse(&quot;blue bold&quot;));
 AnsiConsole.Render(calendar);
-
-┌────┬────┬────┬────┬────┬────┬────┐
-│ 日 │ 月 │ 火 │ 水 │ 木 │ 金 │ 土 │
-├────┼────┼────┼────┼────┼────┼────┤
-│    │    │    │    │ 1  │ 2  │ 3  │
-│ 4  │ 5  │ 6  │ 7  │ 8  │ 9  │ 10 │
-│ 11 │ 12 │ 13 │ 14 │ 15 │ 16 │ 17 │
-│ 18 │ 19 │ 20 │ 21 │ 22 │ 23 │ 24 │
-│ 25 │ 26 │ 27 │ 28 │ 29 │ 30 │ 31 │
-│    │    │    │    │    │    │    │
-└────┴────┴────┴────┴────┴────┴────┘
-
 </code></pre>
 <h2 id="calendar-event">Calendar Event</h2>
 <p>You can add an event to the calendar.
@@ -157,6 +179,7 @@ If a date has an event associated with it, the date gets highlighted in the cale
 calendar.AddCalendarEvent(2020, 10, 11);
 AnsiConsole.Render(calendar);
 
+               2020 October
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │ Sun │ Mon │ Tue │ Wed │ Thu │ Fri │ Sat │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
@@ -167,7 +190,6 @@ AnsiConsole.Render(calendar);
 │ 25  │ 26  │ 27  │ 28  │ 29  │ 30  │ 31  │
 │     │     │     │     │     │     │     │
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┘
-
 </code></pre>
 <h3 id="highlight-style">Highlight style</h3>
 <p>You can set the highlight style for a calendar event via <code>SetHighlightStyle</code>.</p>
@@ -195,7 +217,7 @@ AnsiConsole.Render(calendar);
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.26.1-preview.0.12</span>
+                    <span class="float-right" style="color: #888888;">0.26.1-preview.0.13</span>
                 </div>
             </div>
         </div>
