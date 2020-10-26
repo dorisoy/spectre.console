@@ -75,12 +75,6 @@
                                             <div class="sidebar-nav-item">
 <a href="/spectre.console/">Welcome</a>                                            </div>
                                                 <div class="sidebar-nav-item">
-<a href="/spectre.console/tables"></a>                                                </div>
-                                                <div class="sidebar-nav-item">
-<a href="/spectre.console/calendar"></a>                                                </div>
-                                                <div class="sidebar-nav-item">
-<a href="/spectre.console/rule"></a>                                                </div>
-                                                <div class="sidebar-nav-item">
 <a href="/spectre.console/quick-start">Quick Start</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/markup">Markup</a>                                                </div>
@@ -177,26 +171,26 @@ table.Width(50);
 <!--- COLUMN APPEARANCE --->
 <!------------------------->
 <h2 id="alignment">Alignment</h2>
-<pre><code class="language-csharp">column.Alignment(Justify.Right);
-column.LeftAligned();
-column.Centered();
-column.RightAligned();
+<pre><code class="language-csharp">table.Columns[0].Alignment(Justify.Right);
+table.Columns[0].LeftAligned();
+table.Columns[0].Centered();
+table.Columns[0].RightAligned();
 </code></pre>
 <h2 id="padding">Padding</h2>
 <pre><code class="language-csharp">// Set left and right padding
-column.Padding(left: 3, right: 5);
+table.Columns[0].Padding(left: 3, right: 5);
 
-// Set padding individually.
-column.PadLeft(3);
-column.PadRight(5);
+// Set padding individually
+table.Columns[0].PadLeft(3);
+table.Columns[0].PadRight(5);
 </code></pre>
 <h2 id="disable-column-wrapping">Disable column wrapping</h2>
 <pre><code class="language-csharp">// Disable column wrapping
-column.NoWrap();
+table.Columns[0].NoWrap();
 </code></pre>
 <h2 id="set-column-width">Set column width</h2>
-<pre><code class="language-csharp">// Set the column width (no fluent extension method for this yet)
-column.Width = 15;
+<pre><code class="language-csharp">// Set the column width
+table.Columns[0].Width(15);
 </code></pre>
 
                                     </div>
@@ -218,7 +212,7 @@ column.Width = 15;
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.2</span>
+                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.3</span>
                 </div>
             </div>
         </div>
