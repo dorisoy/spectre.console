@@ -129,8 +129,8 @@ You can make exception a bit more readable by using the <code>WriteException</co
 more readable, and make paths clickable hyperlinks. Whether or not
 the hyperlinks are clickable is up to the terminal.</p>
 <pre><code class="language-csharp">AnsiConsole.WriteException(ex, 
-    ExceptionFormat.ShortenPaths | ExceptionFormat.ShortenTypes |
-    ExceptionFormat.ShortenMethods | ExceptionFormat.ShowLinks);
+    ExceptionFormats.ShortenPaths | ExceptionFormats.ShortenTypes |
+    ExceptionFormats.ShortenMethods | ExceptionFormats.ShowLinks);
 </code></pre>
 <img src="assets/images/compact_exception.png" style="max-width: 100%;">
 <h2 id="customizing-exception-output">Customizing exception output</h2>
@@ -168,7 +168,7 @@ also override the default styling.</p>
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.1</span>
+                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.2</span>
                 </div>
             </div>
         </div>
