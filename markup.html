@@ -140,6 +140,9 @@ AnsiConsole.Markup("[red][[World]][/]"); // [World]
 <p>You can also use the <code>EscapeMarkup</code> extension method.</p>
 <pre><code class="language-csharp">AnsiConsole.Markup("[red]{0}[/]", "Hello [World]".EscapeMarkup());
 </code></pre>
+<p>You can also use the <code>Markup.Escape</code> method.</p>
+<pre><code class="language-csharp">AnsiConsole.Markup("[red]{0}[/]", Markup.Escape("Hello [World]"));
+</code></pre>
 <h1 id="setting-background-color">Setting background color</h1>
 <p>You can set the background color in markup by prefixing the color with
 <code>on</code>.</p>
@@ -185,7 +188,7 @@ AnsiConsole.Markup("[rgb(255,0,0)]Baz[/] ");
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.3</span>
+                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.5</span>
                 </div>
             </div>
         </div>
