@@ -183,12 +183,16 @@ table.Columns[0].Centered();
 table.Columns[0].RightAligned();
 </code></pre>
 <h2 id="padding">Padding</h2>
-<pre><code class="language-csharp">// Set left and right padding
-table.Columns[0].Padding(left: 3, right: 5);
-
-// Set padding individually
+<pre><code class="language-csharp">// Set padding individually
 table.Columns[0].PadLeft(3);
 table.Columns[0].PadRight(5);
+
+// Or chained together
+table.Columns[0].PadLeft(3).PadRight(5);
+
+// Or with the shorthand method if the left and right 
+// padding are identical. Vertical padding is ignored.
+table.Columns[0].Padding(4, 0);
 </code></pre>
 <h2 id="disable-column-wrapping">Disable column wrapping</h2>
 <pre><code class="language-csharp">// Disable column wrapping
@@ -218,7 +222,7 @@ table.Columns[0].Width(15);
             <div class="container">
                 <div>
                     <span>© 2020 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.5</span>
+                    <span class="float-right" style="color: #888888;">0.27.1-preview.0.6</span>
                 </div>
             </div>
         </div>
