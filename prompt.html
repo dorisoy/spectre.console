@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
-        <title>Spectre.Console - Styles</title>
+        <title>Spectre.Console - Prompt</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Styles</div>
+                                    <div class="text-white m-0 title">Prompt</div>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
 <a href="/spectre.console/markup">Markup</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/exceptions">Exceptions</a>                                                </div>
-                                                <div class="sidebar-nav-item">
+                                                <div class="sidebar-nav-item active">
 <a href="/spectre.console/prompt">Prompt</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/widgets">Widgets</a>                                                </div>
@@ -99,11 +99,11 @@
                                                     </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/appendix">Appendix</a>                                                </div>
-                                                    <div class="sidebar-nav-children active">
+                                                    <div class="sidebar-nav-children">
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/colors">Colors</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child active">
+                                                            <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/styles">Styles</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -115,49 +115,84 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p>Note that what styles that can be used is defined by the system or your terminal software, and may not appear as they should.</p>
-<table class="table">
-    <tr>
-        <td><code>bold</code></td>
-        <td>Bold text</td>
-    </tr>
-    <tr>
-        <td><code>dim</code></td>
-        <td>Dim or faint text</td>
-    </tr>
-    <tr>
-        <td><code>italic</code></td>
-        <td>Italic text</td>
-    </tr>
-    <tr>
-        <td><code>underline</code></td>
-        <td>Underlined text</td>
-    </tr>
-    <tr>
-        <td><code>invert</code></td>
-        <td>Swaps the foreground and background colors</td>
-    </tr>
-    <tr>
-        <td><code>conceal</code></td>
-        <td>Hides the text</td>
-    </tr>
-    <tr>
-        <td><code>slowblink</code></td>
-        <td>Makes text blink slowly</td>
-    </tr>
-    <tr>
-        <td><code>rapidblink</code></td>
-        <td>Makes text blink</td>
-    </tr>
-    <tr>
-        <td><code>strikethrough</code></td>
-        <td>Shows text with a horizontal line through the center</td>
-    </tr>
-</table>
+                                        <p>Sometimes you want to get some input from the user, and for this
+you can use the <code>Prompt&lt;TResult&gt;</code>.</p>
+<h1 id="confirmation">Confirmation</h1>
+<pre><code class="language-csharp">if (!AnsiConsole.Confirm(&quot;Run example?&quot;))
+{
+    return;
+}
+</code></pre>
+<pre><code class="language-text">Run example? [y/n] (y): _
+</code></pre>
+<h1 id="simple">Simple</h1>
+<pre><code class="language-csharp">// Ask for the user's name
+string name = AnsiConsole.Ask&lt;string&gt;(&quot;What's your [green]name[/]?&quot;);
+
+// Ask for the user's age
+int age = AnsiConsole.Ask&lt;int&gt;(&quot;What's your [green]age[/]?&quot;);
+</code></pre>
+<pre><code class="language-text">What's your name? Patrik
+What's your age? 37
+</code></pre>
+<h1 id="choices">Choices</h1>
+<pre><code class="language-csharp">var fruit = AnsiConsole.Prompt(
+    new TextPrompt&lt;string&gt;(&quot;What's your [green]favorite fruit[/]?&quot;)
+        .InvalidChoiceMessage(&quot;[red]That's not a valid fruit[/]&quot;)
+        .DefaultValue(&quot;Orange&quot;)
+        .AddChoice(&quot;Apple&quot;)
+        .AddChoice(&quot;Banana&quot;)
+        .AddChoice(&quot;Orange&quot;));
+</code></pre>
+<pre><code class="language-text">What's your favorite fruit? [Apple/Banana/Orange] (Orange): _
+</code></pre>
+<h1 id="validation">Validation</h1>
+<pre><code class="language-csharp">var age = AnsiConsole.Prompt(
+    new TextPrompt&lt;int&gt;(&quot;What's the secret number?&quot;)
+        .Validate(age =&gt;
+        {
+            return age switch
+            {
+                &lt;= 99 =&gt; ValidationResult.Error(&quot;[red]Too low[/]&quot;),
+                &gt;= 99 =&gt; ValidationResult.Error(&quot;[red]Too high[/]&quot;),
+                _ =&gt; ValidationResult.Success(),
+            };
+        }));
+</code></pre>
+<pre><code class="language-text">What's the secret number? 32
+Too low
+What's the secret number? 102
+Too high
+What's the secret number? _
+</code></pre>
+<h1 id="secrets">Secrets</h1>
+<pre><code class="language-csharp">var password = AnsiConsole.Prompt(
+    new TextPrompt&lt;string&gt;(&quot;Enter [green]password[/]&quot;)
+        .PromptStyle(&quot;red&quot;)
+        .Secret());
+</code></pre>
+<pre><code class="language-text">Enter password: ************_
+</code></pre>
+<h1 id="optional">Optional</h1>
+<pre><code class="language-csharp">var color = AnsiConsole.Prompt(
+    new TextPrompt&lt;string&gt;(&quot;[grey][[Optional]][/] [green]Favorite color[/]?&quot;)
+        .AllowEmpty());
+</code></pre>
+<pre><code class="language-text">[Optional] Favorite color? _
+</code></pre>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/appendix/styles.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#confirmation">Confirmation</a></p>
+                                                    <p class="small"><a href="#simple">Simple</a></p>
+                                                    <p class="small"><a href="#choices">Choices</a></p>
+                                                    <p class="small"><a href="#validation">Validation</a></p>
+                                                    <p class="small"><a href="#secrets">Secrets</a></p>
+                                                    <p class="small"><a href="#optional">Optional</a></p>
+                                            </div>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/prompt.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>
