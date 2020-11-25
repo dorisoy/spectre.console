@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
-        <title>Spectre.Console - Widgets</title>
+        <title>Spectre.Console - Canvas</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Widgets</div>
+                                    <div class="text-white m-0 title">Canvas</div>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
 <a href="/spectre.console/exceptions">Exceptions</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/prompt">Prompt</a>                                                </div>
-                                                <div class="sidebar-nav-item active has-children">
+                                                <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/widgets">Widgets</a>                                                </div>
                                                     <div class="sidebar-nav-children active">
                                                             <div class="sidebar-nav-child">
@@ -99,7 +99,7 @@
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/widgets/figlet">Figlet</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child">
+                                                            <div class="sidebar-nav-child active">
                                                                 <a href="/spectre.console/widgets/canvas">Canvas</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -124,20 +124,57 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        
-<h1>Sections</h1>
+                                        <p><code>Canvas</code> is a widget that allows you to render arbitrary &quot;pixels&quot;
+(or <em>coxels</em>, as <a href="https://twitter.com/SimonCropp/status/1331554791726534657?s=20">Simon Cropp</a>
+suggested we should call them).</p>
+<h1 id="drawing-primitives">Drawing primitives</h1>
+<pre><code class="language-csharp">// Create a canvas
+var canvas = new Canvas(16, 16);
 
-<ul>
-  <li><a href="/spectre.console/widgets/table">Table</a></li>
-  <li><a href="/spectre.console/widgets/rule">Rule</a></li>
-  <li><a href="/spectre.console/widgets/calendar">Calendar</a></li>
-  <li><a href="/spectre.console/widgets/figlet">Figlet</a></li>
-  <li><a href="/spectre.console/widgets/canvas">Canvas</a></li>
-  <li><a href="/spectre.console/widgets/canvas-image">Canvas Image</a></li>
-</ul>
+// Draw some shapes
+for(var i = 0; i &lt; canvas.Width; i++)
+{
+    // Cross
+    canvas.SetPixel(i, i, Color.White);
+    canvas.SetPixel(canvas.Width - i - 1, i, Color.White);
+
+    // Border
+    canvas.SetPixel(i, 0, Color.Red);
+    canvas.SetPixel(0, i, Color.Green);
+    canvas.SetPixel(i, canvas.Height - 1, Color.Blue);
+    canvas.SetPixel(canvas.Width - 1, i, Color.Yellow);
+}
+
+// Render the canvas
+AnsiConsole.Render(canvas);
+</code></pre>
+<h2 id="result">Result</h2>
+<pre style="font-size:100%;font-family:consolas,'Courier New',monospace;line-height: normal; padding: 0px;background-color: #222222; padding: 20px;">
+<span style="background-color: #008000">  </span><span style="background-color: #FF0000">                              </span>
+<span style="background-color: #008000">  </span><span style="background-color: #800080">  </span><span>                        </span><span style="background-color: #800080">  </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>  </span><span style="background-color: #800080">  </span><span>                    </span><span style="background-color: #800080">  </span><span>  </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>    </span><span style="background-color: #800080">  </span><span>                </span><span style="background-color: #800080">  </span><span>    </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>      </span><span style="background-color: #800080">  </span><span>            </span><span style="background-color: #800080">  </span><span>      </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>        </span><span style="background-color: #800080">  </span><span>        </span><span style="background-color: #800080">  </span><span>        </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>          </span><span style="background-color: #800080">  </span><span>    </span><span style="background-color: #800080">  </span><span>          </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>            </span><span style="background-color: #800080">    </span><span>            </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>            </span><span style="background-color: #800080">    </span><span>            </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>          </span><span style="background-color: #800080">  </span><span>    </span><span style="background-color: #800080">  </span><span>          </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>        </span><span style="background-color: #800080">  </span><span>        </span><span style="background-color: #800080">  </span><span>        </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>      </span><span style="background-color: #800080">  </span><span>            </span><span style="background-color: #800080">  </span><span>      </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>    </span><span style="background-color: #800080">  </span><span>                </span><span style="background-color: #800080">  </span><span>    </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span>  </span><span style="background-color: #800080">  </span><span>                    </span><span style="background-color: #800080">  </span><span>  </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span style="background-color: #800080">  </span><span>                        </span><span style="background-color: #800080">  </span><span style="background-color: #FFFF00">  </span>
+<span style="background-color: #008000">  </span><span style="background-color: #0000FF">                            </span><span style="background-color: #FFFF00">  </span>
+</pre>
+
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/widgets/index.cshtml"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#drawing-primitives">Drawing primitives</a></p>
+                                            </div>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/widgets/canvas.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>

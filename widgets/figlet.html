@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
-        <title>Spectre.Console - Widgets</title>
+        <title>Spectre.Console - Figlet</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Widgets</div>
+                                    <div class="text-white m-0 title">Figlet</div>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
 <a href="/spectre.console/exceptions">Exceptions</a>                                                </div>
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/prompt">Prompt</a>                                                </div>
-                                                <div class="sidebar-nav-item active has-children">
+                                                <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/widgets">Widgets</a>                                                </div>
                                                     <div class="sidebar-nav-children active">
                                                             <div class="sidebar-nav-child">
@@ -96,7 +96,7 @@
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/widgets/calendar">Calendar</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child">
+                                                            <div class="sidebar-nav-child active">
                                                                 <a href="/spectre.console/widgets/figlet">Figlet</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -124,20 +124,36 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        
-<h1>Sections</h1>
+                                        <p>Spectre.Console can render <a href="http://www.figlet.org/">FIGlet</a> text by using the <code>FigletText</code> class.</p>
+<h1 id="default-font">Default font</h1>
+<pre><code class="language-csharp">AnsiConsole.Render(
+    new FigletText(&quot;Hello&quot;)
+        .LeftAligned()
+        .Color(Color.Red));
+</code></pre>
+<pre><code class="language-text"> _   _          _   _          
+| | | |   ___  | | | |   ___  
+| |_| |  / _ \ | | | |  / _ \ 
+|  _  | |  __/ | | | | | (_) |
+|_| |_|  \___| |_| |_|  \___/ 
+</code></pre>
+<h1 id="custom-font">Custom font</h1>
+<pre><code class="language-csharp">var font = FigletFont.Load(&quot;starwars.flf&quot;);
 
-<ul>
-  <li><a href="/spectre.console/widgets/table">Table</a></li>
-  <li><a href="/spectre.console/widgets/rule">Rule</a></li>
-  <li><a href="/spectre.console/widgets/calendar">Calendar</a></li>
-  <li><a href="/spectre.console/widgets/figlet">Figlet</a></li>
-  <li><a href="/spectre.console/widgets/canvas">Canvas</a></li>
-  <li><a href="/spectre.console/widgets/canvas-image">Canvas Image</a></li>
-</ul>
+AnsiConsole.Render(
+    new FigletText(font, &quot;Hello&quot;)
+        .LeftAligned()
+        .Color(Color.Red));
+</code></pre>
+
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/widgets/index.cshtml"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#default-font">Default font</a></p>
+                                                    <p class="small"><a href="#custom-font">Custom font</a></p>
+                                            </div>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/widgets/figlet.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>
