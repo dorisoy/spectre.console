@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
-        <title>Spectre.Console - Styles</title>
+        <title>Spectre.Console - Bar Chart</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Styles</div>
+                                    <div class="text-white m-0 title">Bar Chart</div>
                                 </div>
                             </div>
                         </div>
@@ -90,11 +90,11 @@
 <a href="/spectre.console/status">Status</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/widgets">Widgets</a>                                                </div>
-                                                    <div class="sidebar-nav-children">
+                                                    <div class="sidebar-nav-children active">
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/widgets/table">Table</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child">
+                                                            <div class="sidebar-nav-child active">
                                                                 <a href="/spectre.console/widgets/barchart">Bar Chart</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -115,11 +115,11 @@
                                                     </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/appendix">Appendix</a>                                                </div>
-                                                    <div class="sidebar-nav-children active">
+                                                    <div class="sidebar-nav-children">
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/colors">Colors</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child active">
+                                                            <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/appendix/styles">Styles</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -134,49 +134,74 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p>Note that what styles that can be used is defined by the system or your terminal software, and may not appear as they should.</p>
-<table class="table">
-    <tr>
-        <td><code>bold</code></td>
-        <td>Bold text</td>
-    </tr>
-    <tr>
-        <td><code>dim</code></td>
-        <td>Dim or faint text</td>
-    </tr>
-    <tr>
-        <td><code>italic</code></td>
-        <td>Italic text</td>
-    </tr>
-    <tr>
-        <td><code>underline</code></td>
-        <td>Underlined text</td>
-    </tr>
-    <tr>
-        <td><code>invert</code></td>
-        <td>Swaps the foreground and background colors</td>
-    </tr>
-    <tr>
-        <td><code>conceal</code></td>
-        <td>Hides the text</td>
-    </tr>
-    <tr>
-        <td><code>slowblink</code></td>
-        <td>Makes text blink slowly</td>
-    </tr>
-    <tr>
-        <td><code>rapidblink</code></td>
-        <td>Makes text blink</td>
-    </tr>
-    <tr>
-        <td><code>strikethrough</code></td>
-        <td>Shows text with a horizontal line through the center</td>
-    </tr>
-</table>
+                                        <p>Use <code>BarChart</code> to render bar charts to the console.</p>
+<img src="../assets/images/barchart.png" style="width: 100%;" />
+<h1 id="usage">Usage</h1>
+<h2 id="basic-usage">Basic usage</h2>
+<pre><code class="language-csharp">AnsiConsole.Render(new BarChart()
+    .Width(60)
+    .Label(&quot;[green bold underline]Number of fruits[/]&quot;)
+    .CenterLabel()
+    .AddItem(&quot;Apple&quot;, 12, Color.Yellow)
+    .AddItem(&quot;Orange&quot;, 54, Color.Green)
+    .AddItem(&quot;Banana&quot;, 33, Color.Red));
+</code></pre>
+<h2 id="add-items-with-converter">Add items with converter</h2>
+<pre><code class="language-csharp">// Create a list of fruits
+var items = new List&lt;(string Label, double Value)&gt;
+{
+    (&quot;Apple&quot;, 12),
+    (&quot;Orange&quot;, 54),
+    (&quot;Banana&quot;, 33),
+};
+
+// Render bar chart
+AnsiConsole.Render(new BarChart()
+    .Width(60)
+    .Label(&quot;[green bold underline]Number of fruits[/]&quot;)
+    .CenterLabel()
+    .AddItems(items, (item) =&gt; new BarChartItem(
+        item.Label, item.Value, Color.Yellow)));
+</code></pre>
+<h2 id="add-items-implementing-ibarchartitem">Add items implementing IBarChartItem</h2>
+<pre><code class="language-csharp">public sealed class Fruit : IBarChartItem
+{
+    public string Label { get; set; }
+    public double Value { get; set; }
+    public Color? Color { get; set; }
+
+    public Fruit(string label, double value, Color? color = null)
+    {
+        Label = label;
+        Value = value;
+        Color = color;
+    }
+}
+
+// Create a list of fruits
+var items = new List&lt;Fruit&gt;
+{
+    new Fruit(&quot;Apple&quot;, 12, Color.Yellow),
+    new Fruit(&quot;Orange&quot;, 54, Color.Red),
+    new Fruit(&quot;Banana&quot;, 33, Color.Green),
+};
+
+// Render bar chart
+AnsiConsole.Render(new BarChart()
+    .Width(60)
+    .Label(&quot;[green bold underline]Number of fruits[/]&quot;)
+    .CenterLabel()
+    .AddItem(new Fruit(&quot;Mango&quot;, 3))
+    .AddItems(items));
+</code></pre>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/appendix/styles.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#usage">Usage</a></p>
+                                            </div>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/widgets/barchart.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>
