@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
-        <title>Spectre.Console - Migrate from Spectre.Cli</title>
+        <title>Spectre.Console - Selection</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                     <div class="section text-uppercase">Spectre.Console</div>
-                                    <div class="text-white m-0 title">Migrate from Spectre.Cli</div>
+                                    <div class="text-white m-0 title">Selection</div>
                                 </div>
                             </div>
                         </div>
@@ -84,11 +84,11 @@
 <a href="/spectre.console/exceptions">Exceptions</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/prompts">Prompts</a>                                                </div>
-                                                    <div class="sidebar-nav-children">
+                                                    <div class="sidebar-nav-children active">
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/prompts/text">Text</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child">
+                                                            <div class="sidebar-nav-child active">
                                                                 <a href="/spectre.console/prompts/selection">Selection</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
@@ -126,11 +126,11 @@
                                                     </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/cli">CLI</a>                                                </div>
-                                                    <div class="sidebar-nav-children active">
+                                                    <div class="sidebar-nav-children">
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/cli/introduction">Introduction</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child active">
+                                                            <div class="sidebar-nav-child">
                                                                 <a href="/spectre.console/cli/migration">Migrate from Spectre.Cli</a>
                                                             </div>
                                                     </div>
@@ -155,39 +155,33 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p>The functionality in <code>Spectre.Cli</code> has been moved into the <code>Spectre.Console</code>
-library. If you're using <code>Spectre.Cli</code>, you will need to migrate to ensure
-that you get updates or fixes.</p>
-<h2 id="remove-spectre.cli-nuget-package">1. Remove Spectre.Cli NuGet package</h2>
-<p>Start with removing the <code>Spectre.Cli</code> package reference from your project(s).</p>
-<pre><code class="language-text">&gt; dotnet remove package Spectre.Cli
-</code></pre>
-<h2 id="add-spectre.console-nuget-package">2. Add Spectre.Console NuGet package</h2>
-<p>Add the <a href="https://www.nuget.org/packages/spectre.console">Spectre.Console</a> NuGet package to your project(s).</p>
-<pre><code class="language-text">&gt; dotnet add package Spectre.Console
-</code></pre>
-<h2 id="change-using-statements">3. Change using statements</h2>
-<p>Change all using statements from <code>Spectre.Cli</code>
-to <code>Spectre.Console.CLi</code>.</p>
-<pre><code class="language-diff">- using Spectre.Cli;
-+ using Spectre.Console.Cli;
-</code></pre>
-<h1 id="breaking-changes">Breaking Changes</h1>
-<p>In the process of moving <code>Spectre.Cli</code>, there have been some minor breaking changes.</p>
-<h2 id="spectre.cli.exceptions-namespace-moved">Spectre.Cli.Exceptions namespace moved</h2>
-<p>All exceptions have been moved from the <code>Spectre.Cli.Exceptions</code> namespace to
-the <code>Spectre.Console.Cli</code> namespace.</p>
-<pre><code class="language-diff">- using Spectre.Cli.Exceptions;
-+ using Spectre.Console.Cli;
+                                        <p>The <code>SelectionPrompt</code> can be used when you want the user to select
+a single item from a provided list.</p>
+<img src="../assets/images/selection.gif" style="width: 100%;" />
+<h1 id="usage">Usage</h1>
+<pre><code class="language-csharp">// Ask for the user's favorite fruit
+var fruit = AnsiConsole.Prompt(
+    new SelectionPrompt&lt;string&gt;()
+        .Title(&quot;What's your [green]favorite fruit[/]?&quot;)
+        .PageSize(10)
+        .AddChoice(&quot;Apple&quot;)
+        .AddChoices(new[] {
+            &quot;Apricot&quot;, &quot;Avocado&quot;, 
+            &quot;Banana&quot;, &quot;Blackcurrant&quot;, &quot;Blueberry&quot;,
+            &quot;Cherry&quot;, &quot;Cloudberry&quot;, &quot;Cocunut&quot;,
+        }));
+
+// Echo the fruit back to the terminal
+AnsiConsole.WriteLine($&quot;I agree. {fruit} is tasty!&quot;);
 </code></pre>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
                                             <div class="border-bottom mb-3">
                                                 <p class="small font-weight-bold">On This Page</p>
-                                                    <p class="small"><a href="#breaking-changes">Breaking Changes</a></p>
+                                                    <p class="small"><a href="#usage">Usage</a></p>
                                             </div>
-                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/cli/migration.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                        <p class="small font-weight-bold"><a href="https://github.com/spectresystems/spectre.console/edit/main/docs/input/prompts/selection.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>
