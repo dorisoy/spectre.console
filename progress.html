@@ -208,6 +208,7 @@ await AnsiConsole.Progress()
 AnsiConsole.Progress()
     .AutoRefresh(false) // Turn off auto refresh
     .AutoClear(false)   // Do not remove the task list when done
+    .HideCompleted(false)   // Hide tasks as they are completed
     .Columns(new ProgressColumn[] 
     {
         new TaskDescriptionColumn(),    // Task description
@@ -240,7 +241,7 @@ AnsiConsole.Progress()
             <div class="container">
                 <div>
                     <span>© 2021 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.37.1-preview.0.33</span>
+                    <span class="float-right" style="color: #888888;">0.37.1-preview.0.36</span>
                 </div>
             </div>
         </div>
