@@ -2,13 +2,24 @@ using System.Collections.Generic;
 
 namespace Spectre.Console.Cli
 {
-    internal static class TemplateParser
+    /// <summary>
+    /// Parses command line templates
+    /// </summary>
+    public static class TemplateParser
     {
+        /// <summary>
+        /// Represents an argument.
+        /// </summary>
         public sealed class ArgumentResult
         {
             public string Value { get; set; }
             public bool Required { get; set; }
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="ArgumentResult"/> class.
+            /// </summary>
+            /// <param name="value">The value.</param>
+            /// <param name="required">If it's required.</param>
             public ArgumentResult(string value, bool required)
             {
                 Value = value;
@@ -30,6 +41,11 @@ namespace Spectre.Console.Cli
             }
         }
 
+        /// <summary>
+        /// Parses a template.
+        /// </summary>
+        /// <param name="template">The template to parse.</param>
+        /// <returns>A parsed argument.</returns>
         public static ArgumentResult ParseArgumentTemplate(string template)
         {
             var valueName = default(string);
@@ -68,6 +84,11 @@ namespace Spectre.Console.Cli
             return new ArgumentResult(valueName, required);
         }
 
+        /// <summary>
+        /// Parses an option template.
+        /// </summary>
+        /// <param name="template">The template to parse.</param>
+        /// <returns>The parsed option.</returns>
         public static OptionResult ParseOptionTemplate(string template)
         {
             var result = new OptionResult();

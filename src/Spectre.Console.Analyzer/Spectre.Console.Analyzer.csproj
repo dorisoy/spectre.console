@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <!-- must be netstandard2.0, weird things happen with net5.0 -->
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\stylecop.json" Link="Properties/stylecop.json" />
+        <None Include="../../resources/gfx/small-logo.png" Pack="true" PackagePath="\" Link="Properties/small-logo.png" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.9.8" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="2.6.1" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+        <!-- need to be explicit about the dlls we are including -->
+        <None Include="$(OutputPath)\Spectre.Console.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+      <ProjectReference Include="..\Spectre.Console\Spectre.Console.csproj" />
+    </ItemGroup>
+</Project>

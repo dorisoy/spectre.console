@@ -4,8 +4,17 @@ using System.Linq;
 
 namespace Spectre.Console
 {
-    internal static class MarkupParser
+    /// <summary>
+    /// Parses markup.
+    /// </summary>
+    public static class MarkupParser
     {
+        /// <summary>
+        /// Parse the markup.
+        /// </summary>
+        /// <param name="text">Test to parse.</param>
+        /// <param name="style">The default style.</param>
+        /// <returns>A paragraph styled by the markup.</returns>
         public static Paragraph Parse(string text, Style? style = null)
         {
             if (text is null)
