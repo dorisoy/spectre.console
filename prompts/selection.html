@@ -85,10 +85,20 @@
                                                 <div class="sidebar-nav-item">
 <a href="/spectre.console/exceptions">Exceptions</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
+<a href="/spectre.console/live">Live Displays</a>                                                </div>
+                                                    <div class="sidebar-nav-children">
+                                                            <div class="sidebar-nav-child">
+                                                                <a href="/spectre.console/live/progress">Progress</a>
+                                                            </div>
+                                                            <div class="sidebar-nav-child">
+                                                                <a href="/spectre.console/live/status">Status</a>
+                                                            </div>
+                                                    </div>
+                                                <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/prompts">Prompts</a>                                                </div>
                                                     <div class="sidebar-nav-children active">
                                                             <div class="sidebar-nav-child">
-                                                                <a href="/spectre.console/prompts/text">Text</a>
+                                                                <a href="/spectre.console/prompts/text">Text prompt</a>
                                                             </div>
                                                             <div class="sidebar-nav-child active">
                                                                 <a href="/spectre.console/prompts/selection">Selection</a>
@@ -97,10 +107,6 @@
                                                                 <a href="/spectre.console/prompts/multiselection">Multi Selection</a>
                                                             </div>
                                                     </div>
-                                                <div class="sidebar-nav-item">
-<a href="/spectre.console/progress">Progress</a>                                                </div>
-                                                <div class="sidebar-nav-item">
-<a href="/spectre.console/status">Status</a>                                                </div>
                                                 <div class="sidebar-nav-item has-children">
 <a href="/spectre.console/widgets">Widgets</a>                                                </div>
                                                     <div class="sidebar-nav-children">
@@ -163,6 +169,10 @@
                                         <p>The <code>SelectionPrompt</code> can be used when you want the user to select
 a single item from a provided list.</p>
 <img src="../assets/images/selection.gif" style="width: 100%;" />
+<div class="alert alert-warning" role="alert" style="margin-top:20px;">
+  <i class="fas fa-exclamation-triangle icon-web"></i> Using prompts inside 
+  status or progress displays, are not supported.
+</div>
 <h1 id="usage">Usage</h1>
 <pre><code class="language-csharp">// Ask for the user's favorite fruit
 var fruit = AnsiConsole.Prompt(
@@ -198,7 +208,7 @@ AnsiConsole.WriteLine($&quot;I agree. {fruit} is tasty!&quot;);
             <div class="container">
                 <div>
                     <span>© 2021 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.38.1-preview.0.6</span>
+                    <span class="float-right" style="color: #888888;">0.38.1-preview.0.7</span>
                 </div>
             </div>
         </div>
