@@ -170,6 +170,10 @@ var fruits = AnsiConsole.Prompt(
         .Title(&quot;What are your [green]favorite fruits[/]?&quot;)
         .NotRequired() // Not required to have a favorite fruit
         .PageSize(10)
+        .MoreChoicesText(&quot;[grey](Move up and down to reveal more fruits)[/]&quot;)
+        .InstructionsText(
+            &quot;[grey](Press [blue]&lt;space&gt;[/] to toggle a fruit, &quot; + 
+            &quot;[green]&lt;enter&gt;[/] to accept)[/]&quot;)
         .AddChoice(&quot;Apple&quot;)
         .AddChoices(new[] {
             &quot;Apricot&quot;, &quot;Avocado&quot;, 
@@ -201,7 +205,7 @@ foreach (string fruit in fruits)
             <div class="container">
                 <div>
                     <span>© 2021 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.38.1-preview.0.3</span>
+                    <span class="float-right" style="color: #888888;">0.38.1-preview.0.6</span>
                 </div>
             </div>
         </div>

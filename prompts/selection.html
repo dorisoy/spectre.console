@@ -169,6 +169,7 @@ var fruit = AnsiConsole.Prompt(
     new SelectionPrompt&lt;string&gt;()
         .Title(&quot;What's your [green]favorite fruit[/]?&quot;)
         .PageSize(10)
+        .MoreChoicesText(&quot;[grey](Move up and down to reveal more fruits)[/]&quot;)
         .AddChoice(&quot;Apple&quot;)
         .AddChoices(new[] {
             &quot;Apricot&quot;, &quot;Avocado&quot;, 
@@ -197,7 +198,7 @@ AnsiConsole.WriteLine($&quot;I agree. {fruit} is tasty!&quot;);
             <div class="container">
                 <div>
                     <span>© 2021 Spectre Systems AB</span>
-                    <span class="float-right" style="color: #888888;">0.38.1-preview.0.3</span>
+                    <span class="float-right" style="color: #888888;">0.38.1-preview.0.6</span>
                 </div>
             </div>
         </div>
